@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { throwStatement } from '@babel/types';
 
-  class Square extends React.Component {
+  function Square(props) {
     render() {
       return (
         <button 
             className="square" 
-            onClick={() => this.props.onClick}
+            onClick={props.onClick}
         >
-          {this.props.value}
+          {props.value}
         </button>
       );
     }
@@ -31,11 +31,11 @@ import { throwStatement } from '@babel/types';
     }
 
     renderSquare(i) {
-        return (
-            <Square 
-                value={this.state.squares[i]} 
-                onClick={() => this.handleClick(i)}
-            />
+     return (
+       <Square 
+        value={this.state.squares[i]} 
+        onClick={() => this.handleClick(i)}
+       />
         );
     }
   
